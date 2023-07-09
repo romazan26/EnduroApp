@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="1515" y="732"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="ANM-Ur-vdd">
             <objects>
-                <viewController id="TtK-Xl-GGz" sceneMemberID="viewController">
+                <viewController id="TtK-Xl-GGz" customClass="LoginViewController" customModule="EnduroApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pmt-oI-olW">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,11 +79,17 @@
                                         <rect key="frame" x="0.0" y="130" width="343" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Log In"/>
+                                        <connections>
+                                            <action selector="loginButton:" destination="TtK-Xl-GGz" eventType="touchUpInside" id="hic-Kh-uXl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71a-WK-hUZ">
                                         <rect key="frame" x="0.0" y="195.33333333333337" width="343" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Create new User"/>
+                                        <connections>
+                                            <action selector="createNewUserButton:" destination="TtK-Xl-GGz" eventType="touchUpInside" id="OV9-AB-SHA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -97,6 +103,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="userNameTF" destination="udm-O0-hYn" id="aWw-Xz-1FL"/>
+                        <outlet property="userPaswordTF" destination="aAF-ZP-vyk" id="NMp-H2-dpA"/>
                         <segue destination="ZFm-hD-jeC" kind="show" id="sOy-Sg-sOB"/>
                     </connections>
                 </viewController>

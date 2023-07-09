@@ -19,7 +19,33 @@ final class StorageManager {
             fatalError("Failed to initialize Realm: \(error)")
         }
     }
+// MARK: - User
+    func save(_ user: [User]) {
+        write {
+            realm.add(user)
+        }
+    }
     
+    func save(_ user: String, withPass password: String, completion: (User) -> Void) {
+        write {
+            let user = User(value: [user, password])
+            realm.add(user)
+            completion(user)
+        }
+    }
+    
+    func delete(_ user: User) {
+        write {
+            realm.delete(user.userData)
+            realm.delete(user)
+        }
+    }
+    
+    func edit(_ user: User, newValue: String) {
+        write {
+            user.userName = newValue
+        }
+    }
     private func write(completion: () -> Void) {
         do {
             try realm.write {
