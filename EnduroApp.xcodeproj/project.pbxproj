@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301D87E52A5B33DA00100EB2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 301D87E42A5B33DA00100EB2 /* Realm */; };
+		301D87E72A5B33DA00100EB2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 301D87E62A5B33DA00100EB2 /* RealmSwift */; };
+		301D87EE2A5B364600100EB2 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301D87ED2A5B364600100EB2 /* user.swift */; };
+		301D87F12A5B3A8A00100EB2 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301D87F02A5B3A8A00100EB2 /* StorageManager.swift */; };
 		30E296CE2A59F6DE009514EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E296CD2A59F6DE009514EB /* AppDelegate.swift */; };
 		30E296D02A59F6DE009514EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E296CF2A59F6DE009514EB /* SceneDelegate.swift */; };
 		30E296D22A59F6DE009514EB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E296D12A59F6DE009514EB /* StartViewController.swift */; };
@@ -16,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		301D87ED2A5B364600100EB2 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		301D87F02A5B3A8A00100EB2 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		30E296CA2A59F6DE009514EB /* EnduroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnduroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30E296CD2A59F6DE009514EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30E296CF2A59F6DE009514EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,12 +37,65 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				301D87E72A5B33DA00100EB2 /* RealmSwift in Frameworks */,
+				301D87E52A5B33DA00100EB2 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		301D87E82A5B34A800100EB2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				30E296D12A59F6DE009514EB /* StartViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		301D87E92A5B34CF00100EB2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				30E296D82A59F6DE009514EB /* LaunchScreen.storyboard */,
+				30E296D32A59F6DE009514EB /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		301D87EA2A5B351200100EB2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				30E296CF2A59F6DE009514EB /* SceneDelegate.swift */,
+				30E296CD2A59F6DE009514EB /* AppDelegate.swift */,
+				30E296DB2A59F6DE009514EB /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		301D87EB2A5B356800100EB2 /* Resurces */ = {
+			isa = PBXGroup;
+			children = (
+				30E296D62A59F6DE009514EB /* Assets.xcassets */,
+			);
+			path = Resurces;
+			sourceTree = "<group>";
+		};
+		301D87EC2A5B361A00100EB2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				301D87ED2A5B364600100EB2 /* user.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		301D87EF2A5B3A5400100EB2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				301D87F02A5B3A8A00100EB2 /* StorageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		30E296C12A59F6DE009514EB = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +115,12 @@
 		30E296CC2A59F6DE009514EB /* EnduroApp */ = {
 			isa = PBXGroup;
 			children = (
-				30E296CD2A59F6DE009514EB /* AppDelegate.swift */,
-				30E296CF2A59F6DE009514EB /* SceneDelegate.swift */,
-				30E296D12A59F6DE009514EB /* StartViewController.swift */,
-				30E296D32A59F6DE009514EB /* Main.storyboard */,
-				30E296D62A59F6DE009514EB /* Assets.xcassets */,
-				30E296D82A59F6DE009514EB /* LaunchScreen.storyboard */,
-				30E296DB2A59F6DE009514EB /* Info.plist */,
+				301D87EF2A5B3A5400100EB2 /* Services */,
+				301D87EC2A5B361A00100EB2 /* Models */,
+				301D87EB2A5B356800100EB2 /* Resurces */,
+				301D87EA2A5B351200100EB2 /* App */,
+				301D87E82A5B34A800100EB2 /* ViewControllers */,
+				301D87E92A5B34CF00100EB2 /* Storyboards */,
 			);
 			path = EnduroApp;
 			sourceTree = "<group>";
@@ -83,6 +141,10 @@
 			dependencies = (
 			);
 			name = EnduroApp;
+			packageProductDependencies = (
+				301D87E42A5B33DA00100EB2 /* Realm */,
+				301D87E62A5B33DA00100EB2 /* RealmSwift */,
+			);
 			productName = EnduroApp;
 			productReference = 30E296CA2A59F6DE009514EB /* EnduroApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +173,9 @@
 				Base,
 			);
 			mainGroup = 30E296C12A59F6DE009514EB;
+			packageReferences = (
+				301D87E32A5B33DA00100EB2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 30E296CB2A59F6DE009514EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +203,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				301D87EE2A5B364600100EB2 /* user.swift in Sources */,
 				30E296D22A59F6DE009514EB /* StartViewController.swift in Sources */,
+				301D87F12A5B3A8A00100EB2 /* StorageManager.swift in Sources */,
 				30E296CE2A59F6DE009514EB /* AppDelegate.swift in Sources */,
 				30E296D02A59F6DE009514EB /* SceneDelegate.swift in Sources */,
 			);
@@ -289,7 +356,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AR6AN34RS9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = EnduroApp/Info.plist;
+				INFOPLIST_FILE = EnduroApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -320,7 +387,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AR6AN34RS9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = EnduroApp/Info.plist;
+				INFOPLIST_FILE = EnduroApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -364,6 +431,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		301D87E32A5B33DA00100EB2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		301D87E42A5B33DA00100EB2 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 301D87E32A5B33DA00100EB2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		301D87E62A5B33DA00100EB2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 301D87E32A5B33DA00100EB2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 30E296C22A59F6DE009514EB /* Project object */;
 }
