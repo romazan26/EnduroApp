@@ -10,19 +10,37 @@ import RealmSwift
 
 class LoginViewController: UIViewController {
 
-    var user: Results<User>!
+    var users: Results<User>!
+    var chooseUser: User!
     private let storagemanager = StorageManager.shared
     
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var userPaswordTF: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        user = StorageManager.shared.realm.objects(User.self)
+        users = StorageManager.shared.realm.objects(User.self)
     }
     
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tabBarVC = segue.destination as? TabBarViewController else {return}
+        tabBarVC.user = chooseUser
+    }
+    
     @IBAction func loginButton(_ sender: UIButton) {
-    print(user)
+        for user in users {
+            guard userNameTF.text == user.userName,
+                  userPaswordTF.text == user.userPassword
+                    
+            else {
+                userNameTF.text = ""
+                userPaswordTF.text = ""
+                return
+            }
+
+            chooseUser = user
+            performSegue(withIdentifier: "showTabBarController", sender: nil)
+        }
     }
     
     @IBAction func createNewUserButton(_ sender: UIButton) {
@@ -31,11 +49,9 @@ class LoginViewController: UIViewController {
     private func save(user: String, password: String) {
             let newUser = User()
             newUser.userName = user
-        newUser.userPassword = password
-                storagemanager.save([newUser])
-                
+            newUser.userPassword = password
+            storagemanager.save([newUser])
         }
-        
     }
 
 extension LoginViewController {

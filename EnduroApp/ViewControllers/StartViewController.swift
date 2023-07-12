@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class StartViewController: UIViewController {
-
+    var user: User!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
 

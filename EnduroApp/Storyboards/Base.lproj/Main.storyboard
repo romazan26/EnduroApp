@@ -22,12 +22,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="779" y="732"/>
+            <point key="canvasLocation" x="776.33587786259534" y="731.69014084507046"/>
         </scene>
-        <!--TaskMoto-->
+        <!--Task Moto Table View Controller-->
         <scene sceneID="0d6-pg-vMD">
             <objects>
-                <tableViewController id="6IH-js-MVK" sceneMemberID="viewController">
+                <tableViewController id="6IH-js-MVK" customClass="TaskMotoTableViewController" customModule="EnduroApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="2gY-kT-yRr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,12 +47,11 @@
                             <outlet property="delegate" destination="6IH-js-MVK" id="xOu-7m-lAt"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="TaskMoto" id="lqh-EY-AfI"/>
                     <navigationItem key="navigationItem" id="rVc-xT-iqG"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icz-xE-wxw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1515" y="732"/>
+            <point key="canvasLocation" x="2440.4580152671756" y="731.69014084507046"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ANM-Ur-vdd">
@@ -105,17 +104,17 @@
                     <connections>
                         <outlet property="userNameTF" destination="udm-O0-hYn" id="aWw-Xz-1FL"/>
                         <outlet property="userPaswordTF" destination="aAF-ZP-vyk" id="NMp-H2-dpA"/>
-                        <segue destination="ZFm-hD-jeC" kind="show" id="sOy-Sg-sOB"/>
+                        <segue destination="ZFm-hD-jeC" kind="show" identifier="showTabBarController" id="sOy-Sg-sOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgs-Vj-132" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-51.145038167938928" y="-4.2253521126760569"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="dW2-Pe-U4E">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZFm-hD-jeC" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZFm-hD-jeC" customClass="TabBarViewController" customModule="EnduroApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="8Ti-Kc-Mdj"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uae-Lo-G4B">
@@ -125,12 +124,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Ev1-Ep-cBj"/>
-                        <segue destination="6IH-js-MVK" kind="relationship" relationship="viewControllers" id="200-Sh-CGa"/>
+                        <segue destination="BLn-PX-FfI" kind="relationship" relationship="viewControllers" id="200-Sh-CGa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P64-qy-rRd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="779" y="-4"/>
+        </scene>
+        <!--TaskMoto-->
+        <scene sceneID="NDe-pU-qm5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BLn-PX-FfI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="TaskMoto" id="lqh-EY-AfI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uxn-gt-ttW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6IH-js-MVK" kind="relationship" relationship="rootViewController" id="GGG-ON-uoB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAW-f5-gRl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1513.7404580152672" y="731.69014084507046"/>
         </scene>
     </scenes>
     <resources>

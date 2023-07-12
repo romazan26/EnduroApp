@@ -58,6 +58,19 @@ final class AlertControllerBuilder {
         return self
     }
     
+    func setTextFields(task: String?, engineHours: String?) -> AlertControllerBuilder {
+        alertController.addTextField { textField in
+            textField.placeholder = "task"
+            textField.text = task
+        }
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "engineHours"
+            textField.text = engineHours
+        }
+        return self
+    }
+    
     /**
          Добавляет действие в `UIAlertController`.
          

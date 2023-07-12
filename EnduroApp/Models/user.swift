@@ -16,7 +16,7 @@ final class User: Object {
 final class UserData: Object {
     @Persisted var name = ""
     @Persisted var surName = ""
-    @Persisted var motos = List<Moto>()
+    @Persisted var moto = List<Moto>()
     
 }
 
@@ -24,4 +24,8 @@ final class Moto: Object {
     @Persisted var brand = ""
     @Persisted var model = ""
     @Persisted var engineСapacity = ""
+    @Persisted var taskTitle = ""
+    @Persisted var engineHours = ""
+    @Persisted var date = Date()
+    @Persisted var isComplete = false
 }
