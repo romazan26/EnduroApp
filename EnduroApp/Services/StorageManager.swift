@@ -63,4 +63,20 @@ final class StorageManager {
             completion(task)
         }
     }
+    func edit(_ moto: Moto, newValue: String) {
+        write {
+            moto.taskTitle = newValue
+        }
+    }
+    func delete(_ moto: Moto) {
+        write {
+            realm.delete(moto)
+        }
+    }
+    func done(_ moto: Moto) {
+        write {
+            moto.setValue(true, forKey: "isComplete")
+        }
+    }
+
 }
