@@ -34,8 +34,7 @@ class LoginViewController: UIViewController {
                   userPaswordTF.text == user.userPassword
                     
             else {
-                userNameTF.text = ""
-                userPaswordTF.text = ""
+                showAlert(with: "Error", and: "incorrect login or password", textField: userPaswordTF)
                 return
             }
 
@@ -73,4 +72,13 @@ extension LoginViewController {
           let alertController = alertBuilder.build()
           present(alertController, animated: true)
       }
+    
+    private func showAlert(with title: String, and message: String, textField: UITextField? = nil){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let closeAction = UIAlertAction(title: "Close", style: .destructive)
+        textField?.text = ""
+        
+        alert.addAction(closeAction)
+        present(alert, animated: true)
+    }
 }
