@@ -15,6 +15,7 @@
 		301D87F62A5B43BA00100EB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301D87F52A5B43BA00100EB2 /* LoginViewController.swift */; };
 		301D87F82A5C4F7C00100EB2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301D87F72A5C4F7C00100EB2 /* TabBarViewController.swift */; };
 		301D87FA2A5C529D00100EB2 /* TaskMotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301D87F92A5C529D00100EB2 /* TaskMotoTableViewController.swift */; };
+		301D87FD2A5FFAEE00100EB2 /* Extension + UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301D87FC2A5FFAEE00100EB2 /* Extension + UITableViewCell.swift */; };
 		30E296CE2A59F6DE009514EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E296CD2A59F6DE009514EB /* AppDelegate.swift */; };
 		30E296D02A59F6DE009514EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E296CF2A59F6DE009514EB /* SceneDelegate.swift */; };
 		30E296D22A59F6DE009514EB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E296D12A59F6DE009514EB /* StartViewController.swift */; };
@@ -30,6 +31,7 @@
 		301D87F52A5B43BA00100EB2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		301D87F72A5C4F7C00100EB2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		301D87F92A5C529D00100EB2 /* TaskMotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMotoTableViewController.swift; sourceTree = "<group>"; };
+		301D87FC2A5FFAEE00100EB2 /* Extension + UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UITableViewCell.swift"; sourceTree = "<group>"; };
 		30E296CA2A59F6DE009514EB /* EnduroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnduroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30E296CD2A59F6DE009514EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30E296CF2A59F6DE009514EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,14 @@
 			path = Bilders;
 			sourceTree = "<group>";
 		};
+		301D87FB2A5FFACD00100EB2 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				301D87FC2A5FFAEE00100EB2 /* Extension + UITableViewCell.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
 		30E296C12A59F6DE009514EB = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +144,7 @@
 		30E296CC2A59F6DE009514EB /* EnduroApp */ = {
 			isa = PBXGroup;
 			children = (
+				301D87FB2A5FFACD00100EB2 /* Extention */,
 				301D87F22A5B435100100EB2 /* Bilders */,
 				301D87EF2A5B3A5400100EB2 /* Services */,
 				301D87EC2A5B361A00100EB2 /* Models */,
@@ -232,6 +243,7 @@
 				30E296CE2A59F6DE009514EB /* AppDelegate.swift in Sources */,
 				301D87F42A5B436A00100EB2 /* AlertControllerBuilder.swift in Sources */,
 				30E296D02A59F6DE009514EB /* SceneDelegate.swift in Sources */,
+				301D87FD2A5FFAEE00100EB2 /* Extension + UITableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

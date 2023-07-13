@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var userPaswordTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         users = StorageManager.shared.realm.objects(User.self)

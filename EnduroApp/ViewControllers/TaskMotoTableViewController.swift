@@ -19,7 +19,6 @@ class TaskMotoTableViewController: UITableViewController {
         super.viewDidLoad()
         
         title = user.userName
-        
         let addButton = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
@@ -27,7 +26,7 @@ class TaskMotoTableViewController: UITableViewController {
         )
         navigationItem.rightBarButtonItems = [addButton, editButtonItem]
         
-        currentTasks = user.userData[0].moto.filter("isComplete = true")
+        currentTasks = user.userData[0].moto.filter("isComplete = false")
         completedTasks = user.userData[0].moto.filter("isComplete = true")
     }
 
@@ -45,31 +44,33 @@ class TaskMotoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TasksCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let task = indexPath.section == 0 ? currentTasks[indexPath.row] : completedTasks[indexPath.row]
+        let task = indexPath.section == 0
+            ? currentTasks[indexPath.row]
+            : completedTasks[indexPath.row]
         content.text = task.taskTitle
-        content.secondaryText = task.engineСapacity
+        content.secondaryText = task.engineHours
         cell.contentConfiguration = content
         return cell
     }
     
     @objc private func addButtonPressed() {
-        
+        showAlert()
     }
 }
 extension TaskMotoTableViewController {
-    private func showAlert(with task: Moto? = nil, completion: (() -> Void)? = nil) {
+    private func showAlert(with moto: Moto? = nil, completion: (() -> Void)? = nil) {
            let alertBuilder = AlertControllerBuilder(
-               title: task != nil ? "Edit Task" : "New Task",
+               title: moto != nil ? "Edit Task" : "New Task",
                message: "What do you want to do?"
            )
            
            alertBuilder
-            .setTextFields(task: task?.taskTitle, engineHours: task?.engineHours)
+            .setTextFields(task: moto?.taskTitle, engineHours: moto?.engineHours)
                .addAction(
-                   title: task != nil ? "Update Task" : "Save Task",
+                   title: moto != nil ? "Update Task" : "Save Task",
                    style: .default
                ) { [weak self] taskTitle, engineHours in
-                   if let task, let completion {
+                   if let moto, let completion {
                        // TODO: - edit task
                        return
                    }

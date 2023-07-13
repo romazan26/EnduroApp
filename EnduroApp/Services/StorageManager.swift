@@ -58,7 +58,7 @@ final class StorageManager {
 // MARK: - Tasks
     func save(_ task: String, withEngineHours engineHours: String, to userData: UserData, completion: (Moto) -> Void) {
         write {
-            let task = Moto(value: [task, engineHours] as [Any])
+            let task = Moto(value: ["taskTitle": task, "engineHours": engineHours])
             userData.moto.append(task)
             completion(task)
         }
