@@ -12,8 +12,8 @@ class TaskMotoTableViewController: UITableViewController {
 
     var user: User!
     
-    private var currentTasks: Results<Moto>!
-    private var completedTasks: Results<Moto>!
+    private var currentTasks: Results<TaskOfMoto>!
+    private var completedTasks: Results<TaskOfMoto>!
     private let storageManager = StorageManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +26,8 @@ class TaskMotoTableViewController: UITableViewController {
         )
         navigationItem.rightBarButtonItems = [addButton, editButtonItem]
         
-        currentTasks = user.userData[0].moto.filter("isComplete = false")
-        completedTasks = user.userData[0].moto.filter("isComplete = true")
+        currentTasks = user.userData[0].taskOfMoto.filter("isComplete = false")
+        completedTasks = user.userData[0].taskOfMoto.filter("isComplete = true")
     }
 
     // MARK: - Table view data source
@@ -57,23 +57,26 @@ class TaskMotoTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let moto = user.userData[0].moto[indexPath.item]
+        
+        let task = indexPath.section == 0
+            ? currentTasks[indexPath.row]
+            : completedTasks[indexPath.row]
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] _, _, _ in
-            storageManager.delete(moto)
+            storageManager.delete(task)
             //tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.reloadData()
         }
         
         let editAction = UIContextualAction(style: .normal, title: "Edit") { [unowned self] _, _, isDone in
-            showAlert() {
+            showAlert(with: task) {
             tableView.reloadRows(at: [indexPath], with: .automatic)
             }
             isDone(true)
         }
         
         let doneAction = UIContextualAction(style: .normal, title: "Done") { [unowned self] _, _, isDone in
-            storageManager.done(moto)
+            storageManager.done(task)
             //tableView.reloadRows(at: [indexPath], with: .automatic)
             tableView.reloadData()
             isDone(true)
@@ -89,20 +92,25 @@ class TaskMotoTableViewController: UITableViewController {
     }
 }
 extension TaskMotoTableViewController {
-    private func showAlert(with moto: Moto? = nil, completion: (() -> Void)? = nil) {
+    private func showAlert(with task: TaskOfMoto? = nil, completion: (() -> Void)? = nil) {
            let alertBuilder = AlertControllerBuilder(
-               title: moto != nil ? "Edit Task" : "New Task",
+               title: task != nil ? "Edit Task" : "New Task",
                message: "What do you want to do?"
            )
            
            alertBuilder
-            .setTextFields(task: moto?.taskTitle, engineHours: moto?.engineHours)
+            .setTextFields(task: task?.taskTitle, engineHours: task?.engineHours)
                .addAction(
-                   title: moto != nil ? "Update Task" : "Save Task",
+                   title: task != nil ? "Update Task" : "Save Task",
                    style: .default
                ) { [weak self] taskTitle, engineHours in
-                   if let moto, let completion {
-                       self?.storageManager.edit(moto, newValue: taskTitle)
+                   if let task, let completion {
+                       self?.storageManager.edit(
+                        task,
+                        newValue: taskTitle,
+                        newEngineHours: engineHours
+                       )
+                       
                        completion()
                        return
                    }

@@ -16,14 +16,14 @@ final class User: Object {
 final class UserData: Object {
     @Persisted var name = ""
     @Persisted var surName = ""
-    @Persisted var moto = List<Moto>()
-    
-}
-
-final class Moto: Object {
     @Persisted var brand = ""
     @Persisted var model = ""
     @Persisted var engineСapacity = ""
+    @Persisted var taskOfMoto = List<TaskOfMoto>()
+    
+}
+
+final class TaskOfMoto: Object {
     @Persisted var taskTitle = ""
     @Persisted var engineHours = ""
     @Persisted var date = Date()

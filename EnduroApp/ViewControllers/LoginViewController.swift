@@ -29,18 +29,19 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        for user in users {
-            guard userNameTF.text == user.userName,
-                  userPaswordTF.text == user.userPassword
-                    
-            else {
-                showAlert(with: "Error", and: "incorrect login or password", textField: userPaswordTF)
-                return
-            }
-
-            chooseUser = user
-            performSegue(withIdentifier: "showTabBarController", sender: nil)
-        }
+        chekLogin()
+//        for user in users {
+//            guard userNameTF.text == user.userName,
+//                  userPaswordTF.text == user.userPassword
+//
+//            else {
+//                showAlert(with: "Error", and: "incorrect login or password", textField: userPaswordTF)
+//                return
+//            }
+//
+//            chooseUser = user
+//            performSegue(withIdentifier: "showTabBarController", sender: nil)
+//        }
     }
     
     @IBAction func createNewUserButton(_ sender: UIButton) {
@@ -80,5 +81,17 @@ extension LoginViewController {
         
         alert.addAction(closeAction)
         present(alert, animated: true)
+    }
+    
+    private func chekLogin(){
+        for user in users{
+            print("user \(user.userName) ")
+            if user.userName == userNameTF.text {
+                chooseUser = user
+                performSegue(withIdentifier: "showTabBarController", sender: nil)
+            } else {
+                showAlert(with: "Error", and: "incorrect login or password", textField: userPaswordTF)
+            }
+        }
     }
 }

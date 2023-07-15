@@ -9,12 +9,12 @@ import UIKit
 
 extension UITableViewCell {
     func configure(with userData: UserData) {
-        let currentTasks = userData.moto.filter("isComplete = false")
+        let currentTasks = userData.taskOfMoto.filter("isComplete = false")
         var content = defaultContentConfiguration()
         
-        content.text = userData.moto[0].taskTitle
+        content.text = userData.taskOfMoto[0].taskTitle
         
-        if userData.moto.isEmpty {
+        if userData.taskOfMoto.isEmpty {
             content.secondaryText = "0"
             accessoryType = .none
         } else if currentTasks.isEmpty {

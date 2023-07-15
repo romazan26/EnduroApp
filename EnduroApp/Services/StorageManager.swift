@@ -56,24 +56,25 @@ final class StorageManager {
         }
     }
 // MARK: - Tasks
-    func save(_ task: String, withEngineHours engineHours: String, to userData: UserData, completion: (Moto) -> Void) {
+    func save(_ task: String, withEngineHours engineHours: String, to userData: UserData, completion: (TaskOfMoto) -> Void) {
         write {
-            let task = Moto(value: ["taskTitle": task, "engineHours": engineHours])
-            userData.moto.append(task)
+            let task = TaskOfMoto(value: ["taskTitle": task, "engineHours": engineHours])
+            userData.taskOfMoto.append(task)
             completion(task)
         }
     }
-    func edit(_ moto: Moto, newValue: String) {
+    func edit(_ moto: TaskOfMoto, newValue: String, newEngineHours: String) {
         write {
             moto.taskTitle = newValue
+            moto.engineHours = newEngineHours
         }
     }
-    func delete(_ moto: Moto) {
+    func delete(_ moto: TaskOfMoto) {
         write {
             realm.delete(moto)
         }
     }
-    func done(_ moto: Moto) {
+    func done(_ moto: TaskOfMoto) {
         write {
             moto.setValue(true, forKey: "isComplete")
         }
