@@ -30,18 +30,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButton(_ sender: UIButton) {
         chekLogin()
-//        for user in users {
-//            guard userNameTF.text == user.userName,
-//                  userPaswordTF.text == user.userPassword
-//
-//            else {
-//                showAlert(with: "Error", and: "incorrect login or password", textField: userPaswordTF)
-//                return
-//            }
-//
-//            chooseUser = user
-//            performSegue(withIdentifier: "showTabBarController", sender: nil)
-//        }
     }
     
     @IBAction func createNewUserButton(_ sender: UIButton) {
